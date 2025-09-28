@@ -1,5 +1,7 @@
 .food-display{
     margin-top: 30px;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .food-display h2{

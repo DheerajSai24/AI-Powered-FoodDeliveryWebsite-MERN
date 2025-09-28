@@ -1,4 +1,4 @@
- import React from 'react'
+import React from 'react'
 import './Header.css'
 const Header = () => {
   return (
@@ -6,7 +6,14 @@ const Header = () => {
       <div className="header-contents">
         <h2>Order Your Favourite Food Here</h2>
         <p>Choose from diverse menu featuring array of dishes crafted with the finest ingredeints and culinary expertise .Our mission is to satisy your cravings and elevate your dining experience , one delicious meal at a time</p>
-        <button>View Menu</button>
+        <button onClick={() => {
+          const menuSection = document.getElementById('explore-menu');
+          if (menuSection) {
+            const navbarHeight = 80;
+            const y = menuSection.offsetTop - navbarHeight;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+          }
+        }}>View Menu</button>
       </div>
     </div>
   )

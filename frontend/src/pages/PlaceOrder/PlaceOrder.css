@@ -1,0 +1,292 @@
+.place-order {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 100px;
+    padding: 0 5vw;
+    min-height: 70vh;
+}
+
+.place-order-left {
+    width: 100%;
+    max-width: 500px;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.place-order-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
+}
+
+.place-order-left .title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.place-order-left .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
+    border-radius: 2px;
+}
+
+.place-order-left input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.place-order-left input:focus {
+    border-color: #ff6347;
+    box-shadow: 0 0 0 3px rgba(255, 99, 71, 0.1);
+    transform: translateY(-2px);
+}
+
+.place-order-left input::placeholder {
+    color: #adb5bd;
+    font-weight: 400;
+}
+
+.multi-fields {
+    display: flex;
+    gap: 15px;
+}
+
+.multi-fields input {
+    flex: 1;
+}
+
+.place-order-right {
+    width: 100%;
+    max-width: 450px;
+}
+
+.place-order-right .cart-total {
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+.place-order-right .cart-total::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
+}
+
+.place-order-right .cart-total h2 {
+    color: #2c3e50;
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.place-order-right .cart-total h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
+    border-radius: 2px;
+}
+
+.place-order-right .cart-total-details {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f3f4;
+    margin-bottom: 25px;
+}
+
+.place-order-right .cart-total-details div {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.place-order-right .cart-total-details div:not(:last-child) {
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.place-order-right .cart-total-details b {
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.place-order-right .cart-total button {
+    background: linear-gradient(135deg, #ff6347 0%, #ff4500 100%);
+    color: white;
+    border: none;
+    padding: 18px 0;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 99, 71, 0.3);
+}
+
+.place-order-right .cart-total button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 99, 71, 0.4);
+    background: linear-gradient(135deg, #ff4500 0%, #ff6347 100%);
+}
+
+.place-order-right .cart-total button:active {
+    transform: translateY(-1px);
+}
+
+/* Input Animations */
+.place-order-left input:hover {
+    border-color: #ff8a75;
+    box-shadow: 0 2px 8px rgba(255, 99, 71, 0.1);
+}
+
+/* Form Validation States */
+.place-order-left input:valid {
+    border-color: #28a745;
+}
+
+.place-order-left input:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .place-order {
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 0 3vw;
+        gap: 30px;
+    }
+    
+    .place-order-left,
+    .place-order-right {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .place-order-left {
+        padding: 30px 25px;
+    }
+    
+    .place-order-right .cart-total {
+        padding: 30px 25px;
+    }
+    
+    .multi-fields {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .place-order-left .title {
+        font-size: 24px;
+    }
+    
+    .place-order-right .cart-total h2 {
+        font-size: 22px;
+    }
+    
+    .place-order-left input {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .place-order {
+        padding: 0 2vw;
+    }
+    
+    .place-order-left {
+        padding: 25px 20px;
+    }
+    
+    .place-order-right .cart-total {
+        padding: 25px 20px;
+    }
+    
+    .place-order-left .title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .place-order-right .cart-total h2 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Loading State */
+.place-order-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Success Animation */
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.place-order-success {
+    animation: successPulse 0.3s ease;
+}

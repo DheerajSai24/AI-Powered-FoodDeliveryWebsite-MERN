@@ -15,8 +15,9 @@
     gap: 20px;
     padding: 20px 8vw;
     padding-top: 80px;
-    user-select: none;
     margin-top: 100px;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .footer-content{
