@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Food Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        input, select { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #ff6347; color: white; padding: 15px 30px; border: none; cursor: pointer; }
+        button:hover { background: #ff4500; }
+        .result { margin-top: 20px; padding: 15px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Test Food Upload</h1>
+    <form id="uploadForm">
+        <label>Name:</label>
+        <input type="text" name="name" required placeholder="Food Name">
+        
+        <label>Description:</label>
+        <input type="text" name="description" required placeholder="Description">
+        
+        <label>Price:</label>
+        <input type="number" name="price" required placeholder="Price">
+        
+        <label>Category:</label>
+        <select name="category" required>
+            <option value="Salad">Salad</option>
+            <option value="Rolls">Rolls</option>
+            <option value="Deserts">Deserts</option>
+            <option value="Sandwich">Sandwich</option>
+            <option value="Cake">Cake</option>
+            <option value="Pure Veg">Pure Veg</option>
+            <option value="Pasta">Pasta</option>
+            <option value="Noodles">Noodles</option>
+        </select>
+        
+        <label>Image:</label>
+        <input type="file" name="image" accept="image/*" required>
+        
+        <button type="submit">Upload Food</button>
+    </form>
+    
+    <div class="result" id="result" style="display:none;"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                const response = await fetch('http://localhost:4000/api/food/add', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                
+                if(data.success) {
+                    e.target.reset();
+                }
+            } catch (error) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = `<pre>Error: ${error.message}</pre>`;
+            }
+        });
+    </script>
+</body>
+</html>
