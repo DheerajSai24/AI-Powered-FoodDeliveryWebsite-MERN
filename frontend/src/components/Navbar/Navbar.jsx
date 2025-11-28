@@ -4,7 +4,7 @@ import './Navbar.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
 
-const Navbar = ({setShowLogin}) => {
+const Navbar = ({setShowLogin, token, setToken}) => {
   const [menu, setMenu] = useState('Home');
   const [isAnimating, setIsAnimating] = useState(false);
   const location = useLocation();
@@ -104,7 +104,17 @@ const Navbar = ({setShowLogin}) => {
           </Link>
           {getTotalCartItems() > 0 && <div className={`dot${isAnimating ? ' blink' : ''}`}></div>}
         </div>
-        <button onClick={()=>setShowLogin(true)}>Sign in</button>
+        {!token
+          ? <button onClick={()=>setShowLogin(true)}>Sign in / Sign up</button>
+          : <div className='navbar-profile'>
+              <img src={assets.profile_icon} alt="" />
+              <ul className="nav-profile-dropdown">
+                <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                <hr />
+                <li onClick={()=>{localStorage.removeItem("token");setToken("")}}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+              </ul>
+            </div>
+        }
       </div>
     </div>
   );

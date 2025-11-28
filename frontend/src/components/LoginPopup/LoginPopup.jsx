@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import { StoreContext } from '../../context/StoreContext'
 
-const LoginPopup = ({setShowLogin}) => {
+const LoginPopup = ({setShowLogin, setToken}) => {
+    const {url} = useContext(StoreContext)
 
-  const url = "http://localhost:4000"
   const [currState, setCurrState] = useState("Sign Up")
+
   const [data, setData] = useState({
     name:"",
     email:"",
@@ -31,15 +34,21 @@ const LoginPopup = ({setShowLogin}) => {
     try {
       const response = await axios.post(newUrl, data);
       if(response.data.success){
-        localStorage.setItem("token", response.data.token);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        setToken(token); // Update navbar immediately
         setShowLogin(false);
-        alert(`${currState} successful!`);
+        if(currState === "Login"){
+          toast.success("Login successful!");
+        } else {
+          toast.success("Registration successful! You can now login.");
+        }
       } else {
-        alert(response.data.message);
+        toast.error(response.data.message);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   }
 
