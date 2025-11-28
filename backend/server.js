@@ -3,6 +3,8 @@ import cors from "cors"
 import { connectDB } from "./config/db.js"
 import 'dotenv/config'
 import foodRouter from "./routes/foodRoute.js"
+import userRouter from "./routes/userRoute.js"
+import multer from "multer"
 
 // app config
 const app = express()
@@ -20,6 +22,7 @@ connectDB();
 // api end point 
 app.use("/api/food",foodRouter)
 app.use("/images",express.static("uploads"))
+app.use("/api/user",userRouter)
 
 app.get("/",(req,res)=>{
     res.send("API working")
@@ -30,7 +33,6 @@ app.get("/test",(req,res)=>{
 })
 
 // Debug endpoint to test file upload
-import multer from "multer"
 const testStorage = multer.diskStorage({
     destination:"uploads",
     filename:(req,file,cb)=>{
