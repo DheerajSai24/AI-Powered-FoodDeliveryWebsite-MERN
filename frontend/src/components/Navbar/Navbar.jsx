@@ -4,7 +4,7 @@ import './Navbar.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState('Home');
   const [isAnimating, setIsAnimating] = useState(false);
   const location = useLocation();
@@ -104,7 +104,7 @@ const Navbar = () => {
           </Link>
           {getTotalCartItems() > 0 && <div className={`dot${isAnimating ? ' blink' : ''}`}></div>}
         </div>
-        <button>Sign in</button>
+        <button onClick={()=>setShowLogin(true)}>Sign in</button>
       </div>
     </div>
   );
