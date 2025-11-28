@@ -1,0 +1,156 @@
+.list.add {
+  width: 70%;
+  margin-left: 5vw;
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.list p {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list-table-format {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 0.5fr;
+  gap: 15px;
+  padding: 12px 15px;
+  border: 1px solid #cacaca;
+  align-items: center;
+}
+
+.list-table-format.title {
+  background-color: #f9f9f9;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+.list-table-format img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-table-format p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.list-table-format:hover:not(.title) {
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
+.list-table-format p:last-child {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff6347;
+}
+
+.list-table-format p:last-child:hover {
+  color: #ff4500;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .list.add {
+    width: 85%;
+    margin-left: 3vw;
+  }
+
+  .list-table-format {
+    grid-template-columns: 0.5fr 1.5fr 1fr 1fr 0.5fr;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .list-table-format img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .list-table-format p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .list.add {
+    width: 95%;
+    margin-left: 2vw;
+    margin-top: 30px;
+  }
+
+  .list p {
+    font-size: 20px;
+  }
+
+  .list-table-format {
+    grid-template-columns: 0.5fr 1.5fr 1fr 0.5fr;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .list-table-format.title b:nth-child(3),
+  .list-table-format:not(.title) p:nth-child(3) {
+    display: none;
+  }
+
+  .list-table-format img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .list-table-format p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .list.add {
+    width: 98%;
+    margin-left: 1vw;
+    margin-top: 20px;
+  }
+
+  .list p {
+    font-size: 18px;
+  }
+
+  .list-table-format {
+    grid-template-columns: 0.8fr 2fr 0.5fr;
+    gap: 5px;
+    padding: 8px 5px;
+  }
+
+  .list-table-format.title b:nth-child(4),
+  .list-table-format:not(.title) p:nth-child(4) {
+    display: none;
+  }
+
+  .list-table-format img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .list-table-format p {
+    font-size: 11px;
+  }
+
+  .list-table-format p:last-child {
+    font-size: 16px;
+  }
+}
